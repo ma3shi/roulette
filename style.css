@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: black;
+  font-weight: bold;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  /* border: red 1px solid; */
+}
+
+/* タイトル */
+#title {
+  margin-top: 1rem;
+  font-size: 3rem;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  /* border: yellow 1px solid; */
+}
+
+/* 残り回数 */
+#remain-count {
+  font-size: 2rem;
+  width: 100%;
+  height: 8%;
+  color: yellow;
+  /* border: yellow 1px solid; */
+}
+
+/* ルーレット結果 */
+#roulette-result {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  color: red;
+  /* border: red 1px solid; */
+}
+
+canvas {
+  /* width: 65%; */
+  display: block;
+  margin: 0 auto;
+  background: black;
+  /* border: yellow 1px solid; */
+}
+
+/* ボタン取りまとめ */
+#btn-wrapper {
+  width: 100%;
+  height: 30%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* border: pink 1px solid; */
+}
+
+/* ボタン */
+.btn {
+  width: 100%;
+  height: 25%;
+  font-size: 1.5rem;
+  letter-spacing: 6px;
+  color: #fa5252;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 奇数 */
+#btn-wrapper .btn:nth-child(odd) {
+  background-color: #e7f5ff;
+}
+
+/* 偶数 */
+#btn-wrapper .btn:nth-child(even) {
+  background-color: #a5d8ff;
+}
+
+/* ボタンをホバー */
+.btn:not(.inactive):hover {
+  color: #c92a2a;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.inactive {
+  cursor: not-allowed;
+}
+
+/* ゲームルール */
+#rule {
+  /* 上下左右中央に寄せる */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  width: 70%;
+
+  color: black;
+  background-color: white;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  /* overlayより上に重ねる */
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#rule p {
+  line-height: 1.7;
+}
+
+/* ルールをだす */
+#rule.show {
+  transform: translate(-50%, 0);
+}
+
+/* ぼかしを隠す */
+.hidden {
+  display: none;
+}
+
+/* ぼかしをかぶせる */
+#overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* ぼかしを入れる  px単位でぼやけ具合を指定*/
+  backdrop-filter: blur(3px);
+  /* modalの下に置く */
+  z-index: 5;
+}
+
+/* ルールを閉じるボタン */
+#close-rule {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: black;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+@media (min-width: 40rem) {
+  #container {
+    max-width: 800px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #roulette-result {
+    font-size: 3rem;
+  }
+  #btn-wrapper {
+    height: 20%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  #btn-wrapper .btn:nth-child(odd) {
+    background-color: #a5d8ff;
+  }
+  .btn {
+    width: 40%;
+    height: 40%;
+    border-radius: 100px;
+  }
+  #rule {
+    width: 30%;
+  }
+}

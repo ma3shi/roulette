@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ルーレット</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="title">ルーレット</div>
+      <div id="remain-count"></div>
+      <div id="roulette-result"></div>
+      <canvas width="300" height="300"></canvas>
+      <div id="btn-wrapper">
+        <div class="btn" id="start">スタート</div>
+        <div class="btn inactive" id="stop">ストップ</div>
+        <div class="btn inactive" id="retry">リトライ</div>
+        <div class="btn" id="show-rule">ルール</div>
+      </div>
+      <audio class="drum" loop>
+        <source src="sounds/drum.mp3" />
+      </audio>
+      <audio class="fanfare">
+        <source src="sounds/fanfare.mp3" />
+      </audio>
+      <audio class="miss">
+        <source src="sounds/miss.mp3" />
+      </audio>
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <p>
+          ルーレットゲームです。<br />ビンクが当たりです。<br />3回失敗するとゲームオーバーです。<br />
+          リトライボタンは当たりかゲームオーバ後に押せます。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
